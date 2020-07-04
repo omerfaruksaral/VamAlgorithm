@@ -1,0 +1,25 @@
+
+h1 {
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+td,th,tr {
+    width: 1px;
+  }
+  input{
+    width: 55px;
+  }
+  span{
+    text-align: center;
+  }
+  .m-top{
+    margin-top: 2.5rem!important;
+  }
+  table {
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
+  
+  div {
+    overflow: auto;
+  }

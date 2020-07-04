@@ -1,0 +1,122 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Jquery -->
+    <script src="~/assets/js/jquery.ajax.js"></script>
+    <!-- Font Awesome CSS -->
+    <link href="~/assets/font-awesome/css/fontawesome.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/font-awesome/css/brands.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/font-awesome/css/solid.css" rel="stylesheet" type="text/css" />
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+</head>
+<body style="background-image: url(../../assets/images/algorithm.jpeg);">
+    <div class="container-fluid">
+        <div class="col-12 mr-auto ml-auto">
+            <br>
+            <div class="sticky-top">
+                <p class="text-center" style="color:white; font-family: Copperplate Gothic Light; font-size: 96px; border:1px solid #dee2e6; background-color: black;">
+                    VOGEL ALGORİTMASI
+                </p>
+            </div>
+            <br>
+            <table id="vamAlgorithm" class="table table-bordered" style="background-color: white;">
+                <thead>
+                    <tr>
+                        <th scope="col">Vogel (VAM) Algoritması</th>
+                        <th class="arz" scope="col">
+                            <div class="row mr-2 ml-2">
+                                <div class="mt-1">ARZ</div>
+                                <div class="ml-auto">
+                                    <button id="arzekle" class="btn btn-sm btn-outline-success mt-1 mb-1 ml-1"><i class="fas fa-plus"></i></button>
+                                    <button id="arzsil" class="btn btn-sm btn-outline-danger ml-2 mr-1"><i class="fas fa-minus"></i></button>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="talep">
+                        <th scope="row" class="">
+                            <div class="row mr-2 ml-2">
+                                <div class="mr-auto">
+                                    <button id="talepekle" class="btn btn-sm btn-outline-success mt-1 mb-1 ml-1"><i class="fas fa-plus"></i></button>
+                                     <button id="talepsil" class="btn btn-sm btn-outline-danger ml-2 mr-1"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <div class="mt-1">TALEP</div>
+
+                            </div>
+
+
+                        </th>
+                        <td id="arz-talep" align="center"><span style="font-size: 36px;"><b id="totalDemand">0</b>/<b id="totalSupply">0</b></span></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4 ml-3 mr-auto">
+            <div class="row">
+                <button id="hesapla" class="btn btn-primary btn-lg m-1"><i class="fas fa-equals"></i></button>
+                <input id="totalCost" class="form-control-lg m-1" readonly type="text" style="width: auto;">
+            </div>
+        </div>
+        <br>
+        <div class="col-12">
+            <p class="text-center" style="color:white; font-family: Copperplate Gothic Light; font-size: 32px; border:1px solid #dee2e6; background-color: black;">
+                <b class="ml-auto" style="font-size: 24px;">VAM METODU (VOGEL’IN YAKLAŞıMı)</b>
+            </p>
+        </div>
+
+        <div class="col-12">
+            <p class="" style="color:white; font-family: Copperplate Gothic Light; font-size: 20px; border:1px solid #dee2e6; background-color: black;">
+                <b>1)</b>Her satır için satırdaki (sütundaki) en küçük birim maliyeti aynı satırın (sütunun) ikinci en küçük birim maliyetinden çıkararak bir ceza ölçüsü belirler.
+                <br>
+                <b>2)</b>En büyük cezaya sahip satır ya da sütunu belirle. Eşitlik halinde rastgele seçim yapılabilir. Bu satır ya da sütundaki en düşük maliyetli kutuya mümkün olduğunca fazla miktarda atama yap. Kalan arz ve
+                talepleri hesapla ve sıfırlanan satır ya da sütunu iptal et. Aynı anda sıfırlanan satır ya da sütunlar varsa, sadece birini iptal ederek kalan satıra (sütuna) sıfır miktarda arz (talep) ata.
+                <br>
+                <b>3)</b>
+                <br>
+                (a) İptal edilmemiş arz ya da talebe sahip tam bir satır (sütun) kalmışsa dur. <br>
+                (b) İptal edilmemiş pozitif arzlı (talepli) bir satır (sütun) kalmışsa, en düşük maliyetler yöntemiyle satırdaki (sütundaki) temel değişkenleri belirle ve dur. <br>
+                (c) İptal edilmemiş satır ve sütunların tümü sıfır arz ve talebe sahipse, en düşük maliyetler yöntemiyle sıfır temel değişkenleri belirle ve dur. <br>
+                (d) Aksi halde Adım 1’e git.
+
+            </p>
+        </div>
+        <br>
+        <div class="col-12">
+            <p class="text-center" style="color:white; font-family: Copperplate Gothic Light; font-size: 24px; border:1px solid #dee2e6; background-color: black;">
+                ÖMER FARUK SARAL
+            </p>
+        </div>
+        <br>
+
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+		var rows = 0;
+		var cols = 0;
+</script>
+<script src="~/assets/js/table-settings.js"></script>
+<script src="~/assets/js/vogel.js"></script>
